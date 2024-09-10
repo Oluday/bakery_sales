@@ -91,3 +91,27 @@ table = article_grp.reset_index()
 
 filtered_table = table[table['article'].isin(selected_articles)]
 
+
+ #bar chart
+st.subheader("Bar chart")
+fig1, ax1 = plt.subplots(figsize=(10,6))
+ax1.bar(filtered_table['article'], filtered_table['sales'])
+st.pyplot(fig1)
+
+
+
+# pie chart
+#percentages
+st.subheader("Pie Chart")
+fig2, ax2 = plt.subplots(figsize=(7,5))
+ax2.pie(filtered_table['sales'], labels = selected_articles, autopct="%1.1f%%")
+st.pyplot(fig2)
+
+
+
+st.subheader("Trend analysis")
+daily_sales = df.groupby('date')['sales'].sum()
+
+fig3, ax3 = plt.subplots(figsize=(12,6))
+ax3.plot(daily_sales.index, daily_sales.values)
+st.pyplot(fig3)
