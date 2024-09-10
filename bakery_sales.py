@@ -92,10 +92,6 @@ table = article_grp.reset_index()
 filtered_table = table[table['article'].isin(selected_articles)]
 
  #bar chart
-st.subheader("Bar chart")
-fig1, ax1 = plt.subplots(figsize=(10,6))
-ax1.bar(filtered_table['article'], filtered_table['sales'])
-st.pyplot(fig1)
 
 
 # pie chart
